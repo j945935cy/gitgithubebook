@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chapter 3 | 用 VS Code 開始第一個版本控制專案</title>
+  <meta name="description" content="學習用 VS Code 建立本機專案、初始化 Git、完成第一個版本控制工作流程。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style/main.css">
+</head>
+<body>
+  <div class="site-shell">
+    <header class="topbar">
+      <a class="brand" href="../index.html">
+        <span class="brand-mark">GS</span>
+        <span class="brand-copy">
+          <strong>Git Start Book</strong>
+          <span>Learn by reading and shipping</span>
+        </span>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+      <nav class="site-nav" id="site-nav" aria-label="主導覽">
+        <a href="../index.html">首頁</a>
+        <a href="../toc.html">課程目錄</a>
+        <a href="ch01.html" aria-current="page">開始閱讀</a>
+        <a href="../labs/lab01-student-repo.html">做第一個 Lab</a>
+      </nav>
+    </header>
+
+    <main class="article-layout">
+      <aside class="article-aside">
+        <div class="aside-card">
+          <p class="card-kicker">In This Chapter</p>
+          <a href="#open-folder">開啟專案資料夾</a>
+          <a href="#init-git">初始化 Git</a>
+          <a href="#source-control">認識 Source Control</a>
+          <a href="#first-commit">建立第一個 commit</a>
+          <a href="#connect-remote">連接遠端 repo</a>
+        </div>
+      </aside>
+
+      <article class="article-content">
+        <header class="article-header">
+          <p class="eyebrow">Chapter 3</p>
+          <h1>用 VS Code 開始第一個版本控制專案</h1>
+          <p>這一章從開啟資料夾開始，帶你用 VS Code 的圖形介面完成整個 Git 初始化流程，不需要背太多指令。</p>
+        </header>
+
+        <section id="open-folder" class="article-section">
+          <h2>開啟專案資料夾</h2>
+          <p>先在電腦上建立一個空資料夾，取一個你看得懂的名稱，例如 <code>my-project</code>。</p>
+          <div class="steps">
+            <div class="step">
+              <span>1</span>
+              <div>
+                <h3>開啟 VS Code</h3>
+                <p>從桌面或開始選單啟動 VS Code。</p>
+              </div>
+            </div>
+            <div class="step">
+              <span>2</span>
+              <div>
+                <h3>File → Open Folder</h3>
+                <p>選擇你剛剛建立的空資料夾，VS Code 會以這個資料夾作為工作區根目錄。</p>
+              </div>
+            </div>
+            <div class="step">
+              <span>3</span>
+              <div>
+                <h3>建立第一個檔案</h3>
+                <p>在左側 Explorer 面板裡點擊新增檔案，命名為 <code>index.html</code>，輸入幾行內容存檔。</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="init-git" class="article-section">
+          <h2>初始化 Git</h2>
+          <p>資料夾本身只是一般目錄，要讓 Git 開始追蹤，需要先執行 init。</p>
+          <p>在 VS Code 開啟內建終端機（<code>Ctrl + `</code>），輸入：</p>
+          <pre class="code-block"><code>git init</code></pre>
+          <p>這個指令會在資料夾裡建立一個隱藏的 <code>.git</code> 目錄，Git 的所有版本紀錄都存放在這裡。</p>
+          <div class="callout soft">
+            <strong>只需要做一次</strong>
+            <p>每個專案只需要執行一次 <code>git init</code>。已經從 GitHub clone 下來的專案則不需要再 init，因為已經包含 <code>.git</code>。</p>
+          </div>
+        </section>
+
+        <section id="source-control" class="article-section">
+          <h2>認識 Source Control 面板</h2>
+          <p>點擊左側工具列的分支圖示（或按 <code>Ctrl+Shift+G</code>），你會看到 Source Control 面板。</p>
+          <figure class="article-figure article-figure--dark">
+            <img src="../img/vscode-source-control.svg" alt="VS Code Source Control 面板示意圖" loading="lazy">
+            <figcaption>VS Code Source Control 面板：Changes 清單、Commit 訊息欄、Commit 按鈕與 Diff 預覽</figcaption>
+          </figure>
+          <ul class="bullet-list">
+            <li><strong>Changes</strong>：列出所有被修改或新增的檔案</li>
+            <li><strong>Staged Changes</strong>：已加入暫存區、準備被 commit 的檔案</li>
+            <li><strong>Message 欄位</strong>：填寫這次 commit 的說明文字</li>
+          </ul>
+          <div class="callout">
+            <strong>圖形介面 vs 指令</strong>
+            <p>VS Code 的 Source Control 面板就是 <code>git add</code>、<code>git commit</code> 的視覺化操作。兩種方式都可以，熟悉哪種就用哪種。</p>
+          </div>
+        </section>
+
+        <section id="first-commit" class="article-section">
+          <h2>建立第一個 commit</h2>
+          <div class="steps">
+            <div class="step">
+              <span>1</span>
+              <div>
+                <h3>Stage 變更</h3>
+                <p>在 Changes 清單裡，點擊檔案旁的 <strong>+</strong> 圖示，把檔案移到 Staged Changes。</p>
+              </div>
+            </div>
+            <div class="step">
+              <span>2</span>
+              <div>
+                <h3>填寫 commit message</h3>
+                <p>在上方輸入欄填入說明，例如：<code>add index.html</code>。清楚說明這次改了什麼。</p>
+              </div>
+            </div>
+            <div class="step">
+              <span>3</span>
+              <div>
+                <h3>點擊 Commit</h3>
+                <p>按下 ✓ 或點擊 Commit 按鈕，第一個版本紀錄就建立了。</p>
+              </div>
+            </div>
+          </div>
+          <p>或者你也可以用終端機完成同樣的事：</p>
+          <pre class="code-block"><code>git add .
+git commit -m "add index.html"</code></pre>
+        </section>
+
+        <section id="connect-remote" class="article-section">
+          <h2>連接遠端 repository</h2>
+          <p>本機的 commit 只存在你的電腦裡。要推到 GitHub，需要先建立遠端連結。</p>
+          <p>先在 GitHub 建立一個新的空 repository（不要勾選 Initialize with README），然後在終端機執行：</p>
+          <pre class="code-block"><code>git remote add origin https://github.com/your-account/my-project.git
+git branch -M main
+git push -u origin main</code></pre>
+          <div class="callout soft">
+            <strong>只需要第一次</strong>
+            <p><code>-u origin main</code> 是設定預設的上游分支。之後推送只需要 <code>git push</code>。</p>
+          </div>
+        </section>
+
+        <nav class="pager" aria-label="章節切換">
+          <a href="ch02.html">上一章：安裝 Git 與設定環境</a>
+          <a href="ch04.html">下一章：clone、add、commit、push 流程</a>
+        </nav>
+      </article>
+    </main>
+
+    <footer class="site-footer">
+      <p>Git Start Book</p>
+      <p>Chapter 3</p>
+    </footer>
+  </div>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

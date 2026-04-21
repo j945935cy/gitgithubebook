@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chapter 4 | clone、add、commit、push 流程</title>
+  <meta name="description" content="完整說明 Git 的四個核心動作：clone、add、commit、push，建立可重複使用的工作流程。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style/main.css">
+</head>
+<body>
+  <div class="site-shell">
+    <header class="topbar">
+      <a class="brand" href="../index.html">
+        <span class="brand-mark">GS</span>
+        <span class="brand-copy">
+          <strong>Git Start Book</strong>
+          <span>Learn by reading and shipping</span>
+        </span>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+      <nav class="site-nav" id="site-nav" aria-label="主導覽">
+        <a href="../index.html">首頁</a>
+        <a href="../toc.html">課程目錄</a>
+        <a href="ch01.html" aria-current="page">開始閱讀</a>
+        <a href="../labs/lab01-student-repo.html">做第一個 Lab</a>
+      </nav>
+    </header>
+
+    <main class="article-layout">
+      <aside class="article-aside">
+        <div class="aside-card">
+          <p class="card-kicker">In This Chapter</p>
+          <a href="#workflow-overview">流程全覽</a>
+          <a href="#clone">git clone</a>
+          <a href="#add">git add</a>
+          <a href="#commit">git commit</a>
+          <a href="#push">git push</a>
+          <a href="#daily-cycle">日常循環</a>
+        </div>
+      </aside>
+
+      <article class="article-content">
+        <header class="article-header">
+          <p class="eyebrow">Chapter 4</p>
+          <h1>clone、add、commit、push 流程</h1>
+          <p>這四個動作是 Git 日常工作的核心。搞懂每個動作在做什麼，你就能把它們組合成自己的工作節奏。</p>
+        </header>
+
+        <section id="workflow-overview" class="article-section">
+          <h2>流程全覽</h2>
+          <p>Git 的基本工作流程可以用四個動作概括：</p>
+          <figure class="article-figure">
+            <img src="../img/git-workflow-steps.svg" alt="Git clone add commit push 四步驟示意圖" loading="lazy">
+            <figcaption>clone → add → commit → push 完整循環，掌握這四步就能應付日常開發</figcaption>
+          </figure>
+          <div class="steps">
+            <div class="step">
+              <span>1</span>
+              <div>
+                <h3>clone — 把遠端 repo 下載到本機</h3>
+                <p>第一次取得專案時使用，建立本機副本並自動設定好遠端連結。</p>
+              </div>
+            </div>
+            <div class="step">
+              <span>2</span>
+              <div>
+                <h3>add — 把變更加入暫存區</h3>
+                <p>告訴 Git「這些檔案的變更我要納入下一個 commit」。</p>
+              </div>
+            </div>
+            <div class="step">
+              <span>3</span>
+              <div>
+                <h3>commit — 建立版本快照</h3>
+                <p>把暫存區的內容正式記錄為一個版本，附上說明文字。</p>
+              </div>
+            </div>
+            <div class="step">
+              <span>4</span>
+              <div>
+                <h3>push — 同步到遠端</h3>
+                <p>把本機的 commit 推送到 GitHub，讓遠端與本機保持一致。</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="clone" class="article-section">
+          <h2>git clone</h2>
+          <p><code>clone</code> 會把整個 repository（包含所有歷史紀錄）下載到本機。</p>
+          <pre class="code-block"><code>git clone https://github.com/your-account/repo-name.git</code></pre>
+          <p>執行後，當前目錄下會新增一個與 repo 同名的資料夾。進入資料夾就可以開始工作：</p>
+          <pre class="code-block"><code>cd repo-name</code></pre>
+          <div class="callout soft">
+            <strong>clone 與 download ZIP 的差別</strong>
+            <p>下載 ZIP 只拿到檔案本體，沒有 Git 歷史。<code>clone</code> 下載完整的版本紀錄，也保留了與遠端的連結，之後可以直接 push。</p>
+          </div>
+        </section>
+
+        <section id="add" class="article-section">
+          <h2>git add</h2>
+          <p><code>add</code> 把工作目錄的變更移到「暫存區」（Staging Area）。你可以選擇加入全部，或只加入特定檔案。</p>
+          <pre class="code-block"><code># 加入所有變更
+git add .
+
+# 只加入特定檔案
+git add index.html style/main.css</code></pre>
+          <p>你可以用 <code>git status</code> 查看哪些檔案已 staged、哪些還沒：</p>
+          <pre class="code-block"><code>git status</code></pre>
+          <div class="callout">
+            <strong>為什麼需要暫存區？</strong>
+            <p>暫存區讓你能夠精確控制每個 commit 包含哪些變更。修改了三個檔案，但只想先 commit 其中兩個？用 <code>add</code> 選擇就好。</p>
+          </div>
+        </section>
+
+        <section id="commit" class="article-section">
+          <h2>git commit</h2>
+          <p><code>commit</code> 把暫存區的內容建立成一個版本快照，永久記錄在 Git 歷史裡。</p>
+          <pre class="code-block"><code>git commit -m "說明這次的變更內容"</code></pre>
+          <p>良好的 commit message 應該簡短、具體。幾個範例：</p>
+          <ul class="bullet-list">
+            <li><code>add navigation bar to index.html</code></li>
+            <li><code>fix typo in chapter 2</code></li>
+            <li><code>update hero section layout</code></li>
+          </ul>
+          <div class="callout soft">
+            <strong>commit 是本機操作</strong>
+            <p>commit 只發生在你的電腦上，不會自動上傳到 GitHub。你需要另外執行 <code>push</code> 才會同步到遠端。</p>
+          </div>
+        </section>
+
+        <section id="push" class="article-section">
+          <h2>git push</h2>
+          <p><code>push</code> 把本機的 commit 上傳到遠端 repository。</p>
+          <pre class="code-block"><code>git push</code></pre>
+          <p>如果是第一次推送新分支，需要加上 upstream 設定：</p>
+          <pre class="code-block"><code>git push -u origin main</code></pre>
+          <p>之後每次推送只需要 <code>git push</code>。</p>
+          <div class="callout">
+            <strong>push 失敗怎麼辦？</strong>
+            <p>如果遠端有你本機沒有的 commit（例如別人推了新內容），需要先 <code>git pull</code> 把遠端的變更拉下來，解決可能的衝突後再 push。</p>
+          </div>
+        </section>
+
+        <section id="daily-cycle" class="article-section">
+          <h2>日常工作循環</h2>
+          <p>把這四個動作串起來，就是每天工作的標準節奏：</p>
+          <pre class="code-block"><code># 1. 確認目前狀態
+git status
+
+# 2. 加入要 commit 的變更
+git add .
+
+# 3. 建立版本紀錄
+git commit -m "說明變更"
+
+# 4. 推送到 GitHub
+git push</code></pre>
+          <p>重複這個循環，你的每一個有意義的進度都會被記錄下來，隨時可以回溯、比較、分享。</p>
+        </section>
+
+        <nav class="pager" aria-label="章節切換">
+          <a href="ch03.html">上一章：用 VS Code 開始第一個版本控制專案</a>
+          <a href="../labs/lab02-push-existing.html">下一步：Lab 2 — 推送本機專案</a>
+        </nav>
+      </article>
+    </main>
+
+    <footer class="site-footer">
+      <p>Git Start Book</p>
+      <p>Chapter 4</p>
+    </footer>
+  </div>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

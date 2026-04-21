@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 260" fill="none" font-family="-apple-system,BlinkMacSystemFont,'Noto Sans TC',sans-serif">
+  <rect width="680" height="260" rx="16" fill="#f5f7f5"/>
+
+  <!-- Title -->
+  <text x="340" y="36" text-anchor="middle" font-size="13" font-weight="600" fill="#1a1c1a">Git 四個核心動作</text>
+
+  <!-- Step boxes -->
+  <!-- Clone -->
+  <rect x="32" y="56" width="136" height="80" rx="10" fill="#ffffff" stroke="#d0d5d0" stroke-width="1.5"/>
+  <rect x="32" y="56" width="136" height="28" rx="10" fill="#1a1c1a"/>
+  <rect x="32" y="70" width="136" height="14" fill="#1a1c1a"/>
+  <text x="100" y="75" text-anchor="middle" font-size="11" font-weight="700" fill="#ffffff">git clone</text>
+  <text x="100" y="104" text-anchor="middle" font-size="10" fill="#6b706b">把遠端 repo</text>
+  <text x="100" y="118" text-anchor="middle" font-size="10" fill="#6b706b">下載到本機</text>
+
+  <!-- Add -->
+  <rect x="188" y="56" width="136" height="80" rx="10" fill="#ffffff" stroke="#d0d5d0" stroke-width="1.5"/>
+  <rect x="188" y="56" width="136" height="28" rx="10" fill="#e8f3ec"/>
+  <rect x="188" y="70" width="136" height="14" fill="#e8f3ec"/>
+  <text x="256" y="75" text-anchor="middle" font-size="11" font-weight="700" fill="#1a7a45">git add</text>
+  <text x="256" y="104" text-anchor="middle" font-size="10" fill="#6b706b">把變更加入</text>
+  <text x="256" y="118" text-anchor="middle" font-size="10" fill="#6b706b">暫存區</text>
+
+  <!-- Commit -->
+  <rect x="344" y="56" width="136" height="80" rx="10" fill="#ffffff" stroke="#d0d5d0" stroke-width="1.5"/>
+  <rect x="344" y="56" width="136" height="28" rx="10" fill="#e8f3ec"/>
+  <rect x="344" y="70" width="136" height="14" fill="#e8f3ec"/>
+  <text x="412" y="75" text-anchor="middle" font-size="11" font-weight="700" fill="#1a7a45">git commit</text>
+  <text x="412" y="104" text-anchor="middle" font-size="10" fill="#6b706b">建立版本</text>
+  <text x="412" y="118" text-anchor="middle" font-size="10" fill="#6b706b">快照紀錄</text>
+
+  <!-- Push -->
+  <rect x="500" y="56" width="148" height="80" rx="10" fill="#ffffff" stroke="#1a7a45" stroke-width="2"/>
+  <rect x="500" y="56" width="148" height="28" rx="10" fill="#1a7a45"/>
+  <rect x="500" y="70" width="148" height="14" fill="#1a7a45"/>
+  <text x="574" y="75" text-anchor="middle" font-size="11" font-weight="700" fill="#ffffff">git push</text>
+  <text x="574" y="104" text-anchor="middle" font-size="10" fill="#6b706b">同步到</text>
+  <text x="574" y="118" text-anchor="middle" font-size="10" fill="#6b706b">GitHub 遠端</text>
+
+  <!-- Arrows between steps -->
+  <line x1="168" y1="96" x2="188" y2="96" stroke="#d0d5d0" stroke-width="2" marker-end="url(#a1)"/>
+  <line x1="324" y1="96" x2="344" y2="96" stroke="#d0d5d0" stroke-width="2" marker-end="url(#a1)"/>
+  <line x1="480" y1="96" x2="500" y2="96" stroke="#d0d5d0" stroke-width="2" marker-end="url(#a1)"/>
+
+  <!-- Daily cycle label -->
+  <rect x="32" y="168" width="616" height="56" rx="10" fill="#ffffff" stroke="#d0d5d0" stroke-width="1.5"/>
+  <text x="340" y="188" text-anchor="middle" font-size="11" font-weight="600" fill="#1a1c1a">日常工作循環</text>
+  <text x="340" y="210" text-anchor="middle" font-size="11" fill="#6b706b">編輯檔案  →  git add .  →  git commit -m "說明"  →  git push</text>
+
+  <!-- Repeat arrow -->
+  <path d="M600 168 Q640 140 640 96 Q640 56 600 56" stroke="#b8d9c5" stroke-width="1.5" fill="none" stroke-dasharray="4,3"/>
+  <text x="650" y="116" font-size="9" fill="#6b706b">重複</text>
+
+  <defs>
+    <marker id="a1" markerWidth="7" markerHeight="7" refX="5" refY="3.5" orient="auto">
+      <path d="M0,0 L0,7 L7,3.5 z" fill="#d0d5d0"/>
+    </marker>
+  </defs>
+</svg>

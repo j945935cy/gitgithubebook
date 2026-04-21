@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lab 3 | 協作與 Pull Request 入門</title>
+  <meta name="description" content="Lab 3：學習建立分支、發送 Pull Request，體驗 GitHub 協作流程。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style/main.css">
+</head>
+<body>
+  <div class="site-shell">
+    <header class="topbar">
+      <a class="brand" href="../index.html">
+        <span class="brand-mark">GS</span>
+        <span class="brand-copy">
+          <strong>Git Start Book</strong>
+          <span>Learn by reading and shipping</span>
+        </span>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+      <nav class="site-nav" id="site-nav" aria-label="主導覽">
+        <a href="../index.html">首頁</a>
+        <a href="../toc.html">課程目錄</a>
+        <a href="../chapters/ch01.html">開始閱讀</a>
+        <a href="lab01-student-repo.html" aria-current="page">做第一個 Lab</a>
+      </nav>
+    </header>
+
+    <main class="article-layout">
+      <aside class="article-aside">
+        <div class="aside-card">
+          <p class="card-kicker">Lab Summary</p>
+          <p>難度：初階</p>
+          <p>時間：30 至 45 分鐘</p>
+          <p>完成後你會知道如何用分支與 PR 協作。</p>
+        </div>
+      </aside>
+
+      <article class="article-content">
+        <header class="article-header">
+          <p class="eyebrow">Lab 3</p>
+          <h1>協作與 Pull Request 入門</h1>
+          <p>分支與 Pull Request 是 GitHub 協作的核心機制。這個 Lab 帶你完整走一遍：從建立分支、推送、到提出 PR 並合併。</p>
+        </header>
+
+        <section class="article-section">
+          <h2>練習目標</h2>
+          <ul class="bullet-list">
+            <li>建立一個新的功能分支</li>
+            <li>在分支上做修改並 commit</li>
+            <li>推送分支到 GitHub</li>
+            <li>發送 Pull Request 並完成合併</li>
+          </ul>
+        </section>
+
+        <section class="article-section">
+          <h2>先備條件</h2>
+          <ul class="bullet-list">
+            <li>已完成 Lab 1 與 Lab 2</li>
+            <li>GitHub 上有一個你有權限操作的 repository</li>
+          </ul>
+        </section>
+
+        <section class="article-section">
+          <h2>什麼是分支？</h2>
+          <p>分支（branch）是 Git 讓你在不影響主線的情況下獨立開發的機制。你可以把它想成一條平行的工作軌道。</p>
+          <figure class="article-figure">
+            <img src="../img/git-branch-pr.svg" alt="Git 分支與 Pull Request 流程示意圖" loading="lazy">
+            <figcaption>從 main 建立 feature branch → commit → push → Pull Request → Merge 回 main</figcaption>
+          </figure>
+          <ul class="bullet-list">
+            <li><code>main</code> 是預設的主分支，通常是穩定、可發布的版本</li>
+            <li>每次要新增功能或修改內容，建立一個新分支來做</li>
+            <li>做完後透過 Pull Request 把分支合併回 <code>main</code></li>
+          </ul>
+          <div class="callout soft">
+            <strong>為什麼不直接改 main？</strong>
+            <p>分支讓你的修改在被審查、確認無誤之前，不會影響主線。特別是多人協作時，每個人各自的工作不會互相干擾。</p>
+          </div>
+        </section>
+
+        <section class="article-section">
+          <h2>操作步驟</h2>
+          <div class="steps">
+            <div class="step">
+              <span>1</span>
+              <div>
+                <h3>確認目前在 main 分支</h3>
+                <pre class="code-block"><code>git branch</code></pre>
+                <p>前面有 <code>*</code> 號的就是目前所在分支。如果不在 main，先切換：</p>
+                <pre class="code-block"><code>git checkout main
+git pull</code></pre>
+              </div>
+            </div>
+            <div class="step">
+              <span>2</span>
+              <div>
+                <h3>建立並切換到新分支</h3>
+                <p>分支名稱用小寫、以 <code>-</code> 分隔，描述這次要做什麼：</p>
+                <pre class="code-block"><code>git checkout -b feature/update-readme</code></pre>
+              </div>
+            </div>
+            <div class="step">
+              <span>3</span>
+              <div>
+                <h3>做修改並 commit</h3>
+                <p>編輯任意一個檔案（例如修改 <code>README.md</code> 加一行說明），然後：</p>
+                <pre class="code-block"><code>git add .
+git commit -m "update README with project description"</code></pre>
+              </div>
+            </div>
+            <div class="step">
+              <span>4</span>
+              <div>
+                <h3>推送分支到 GitHub</h3>
+                <pre class="code-block"><code>git push -u origin feature/update-readme</code></pre>
+              </div>
+            </div>
+            <div class="step">
+              <span>5</span>
+              <div>
+                <h3>在 GitHub 建立 Pull Request</h3>
+                <p>推送後打開 GitHub，頁面上會出現黃色提示列，點擊 <strong>Compare &amp; pull request</strong>。填寫 PR 標題與說明，確認 base 是 <code>main</code>、compare 是你的分支，點擊 <strong>Create pull request</strong>。</p>
+              </div>
+            </div>
+            <div class="step">
+              <span>6</span>
+              <div>
+                <h3>合併 Pull Request</h3>
+                <p>在 PR 頁面確認 diff 內容無誤後，點擊 <strong>Merge pull request</strong> → <strong>Confirm merge</strong>。分支的變更就會合併進 <code>main</code>。</p>
+              </div>
+            </div>
+            <div class="step">
+              <span>7</span>
+              <div>
+                <h3>在本機同步最新 main</h3>
+                <pre class="code-block"><code>git checkout main
+git pull</code></pre>
+                <p>本機的 <code>main</code> 現在與遠端同步，包含剛才合併的變更。</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="article-section">
+          <h2>成功條件</h2>
+          <ul class="bullet-list">
+            <li>GitHub 上的 <code>main</code> 分支包含你的修改</li>
+            <li>PR 顯示為 Merged 狀態</li>
+            <li>本機 <code>main</code> 執行 <code>git log --oneline</code> 可看到新的 commit</li>
+          </ul>
+        </section>
+
+        <section class="article-section">
+          <h2>常見問題</h2>
+          <div class="callout soft">
+            <strong>Merge conflict 衝突怎麼辦？</strong>
+            <p>當兩個分支修改了同一個檔案的同一個位置，Git 無法自動決定用哪個版本，會產生衝突。VS Code 內建衝突解決介面，會標示出 <code>&lt;&lt;&lt;&lt;&lt;&lt;</code> 和 <code>&gt;&gt;&gt;&gt;&gt;&gt;</code> 的區塊，讓你選擇保留哪個版本，儲存後再 add、commit 完成合併。</p>
+          </div>
+        </section>
+
+        <nav class="pager" aria-label="頁面切換">
+          <a href="lab02-push-existing.html">上一個 Lab：將本機專案推送到 GitHub</a>
+          <a href="../toc.html">返回課程目錄</a>
+        </nav>
+      </article>
+    </main>
+
+    <footer class="site-footer">
+      <p>Git Start Book</p>
+      <p>Lab 3</p>
+    </footer>
+  </div>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

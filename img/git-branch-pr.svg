@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 280" fill="none" font-family="-apple-system,BlinkMacSystemFont,'Noto Sans TC',sans-serif">
+  <rect width="680" height="280" rx="16" fill="#f5f7f5"/>
+
+  <text x="340" y="36" text-anchor="middle" font-size="13" font-weight="600" fill="#1a1c1a">Git 分支與 Pull Request</text>
+
+  <!-- Timeline main (main branch) -->
+  <line x1="60" y1="140" x2="620" y2="140" stroke="#1a1c1a" stroke-width="2.5"/>
+  <text x="44" y="144" text-anchor="end" font-size="11" font-weight="600" fill="#1a1c1a">main</text>
+
+  <!-- Commits on main -->
+  <circle cx="120" cy="140" r="9" fill="#1a1c1a"/>
+  <circle cx="240" cy="140" r="9" fill="#1a1c1a"/>
+  <circle cx="560" cy="140" r="9" fill="#1a7a45" stroke="#1a7a45" stroke-width="2"/>
+  <circle cx="620" cy="140" r="9" fill="#1a1c1a"/>
+
+  <!-- Commit labels -->
+  <text x="120" y="164" text-anchor="middle" font-size="9" fill="#6b706b">initial</text>
+  <text x="240" y="164" text-anchor="middle" font-size="9" fill="#6b706b">commit A</text>
+  <text x="560" y="164" text-anchor="middle" font-size="9" fill="#1a7a45" font-weight="600">Merge PR</text>
+  <text x="620" y="164" text-anchor="middle" font-size="9" fill="#6b706b">HEAD</text>
+
+  <!-- Feature branch line -->
+  <path d="M240 140 Q260 100 300 80 L480 80 Q510 80 530 100 L560 140" stroke="#1a7a45" stroke-width="2" fill="none" stroke-dasharray="6,3"/>
+  <text x="390" y="68" text-anchor="middle" font-size="11" font-weight="600" fill="#1a7a45">feature/update-readme</text>
+
+  <!-- Commits on feature branch -->
+  <circle cx="340" cy="80" r="8" fill="#e8f3ec" stroke="#1a7a45" stroke-width="2"/>
+  <circle cx="430" cy="80" r="8" fill="#e8f3ec" stroke="#1a7a45" stroke-width="2"/>
+  <text x="340" y="60" text-anchor="middle" font-size="9" fill="#1a7a45">commit B</text>
+  <text x="430" y="60" text-anchor="middle" font-size="9" fill="#1a7a45">commit C</text>
+
+  <!-- git checkout -b label -->
+  <line x1="240" y1="130" x2="270" y2="106" stroke="#d0d5d0" stroke-width="1" stroke-dasharray="3,2"/>
+  <rect x="108" y="188" width="132" height="22" rx="5" fill="#1a1c1a"/>
+  <text x="174" y="203" text-anchor="middle" font-size="10" font-weight="600" fill="#ffffff">git checkout -b</text>
+
+  <!-- PR box -->
+  <rect x="286" y="196" width="200" height="54" rx="8" fill="#ffffff" stroke="#1a7a45" stroke-width="1.5"/>
+  <text x="386" y="216" text-anchor="middle" font-size="11" font-weight="600" fill="#1a1c1a">Pull Request</text>
+  <text x="386" y="232" text-anchor="middle" font-size="10" fill="#6b706b">在 GitHub 網頁發送</text>
+  <text x="386" y="244" text-anchor="middle" font-size="10" fill="#6b706b">審查 → Merge</text>
+
+  <!-- PR arrow -->
+  <line x1="386" y1="196" x2="430" y2="88" stroke="#1a7a45" stroke-width="1" stroke-dasharray="3,2" marker-end="url(#ag)"/>
+
+  <!-- git push label -->
+  <rect x="504" y="196" width="120" height="22" rx="5" fill="#e8f3ec" stroke="#1a7a45" stroke-width="1.5"/>
+  <text x="564" y="211" text-anchor="middle" font-size="10" font-weight="600" fill="#1a7a45">git push → PR → Merge</text>
+
+  <defs>
+    <marker id="ag" markerWidth="7" markerHeight="7" refX="5" refY="3.5" orient="auto">
+      <path d="M0,0 L0,7 L7,3.5 z" fill="#1a7a45"/>
+    </marker>
+  </defs>
+</svg>

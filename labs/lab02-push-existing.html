@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lab 2 | 將本機專案推送到 GitHub</title>
+  <meta name="description" content="Lab 2：把已存在的本機專案連接到 GitHub 並完成第一次推送。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style/main.css">
+</head>
+<body>
+  <div class="site-shell">
+    <header class="topbar">
+      <a class="brand" href="../index.html">
+        <span class="brand-mark">GS</span>
+        <span class="brand-copy">
+          <strong>Git Start Book</strong>
+          <span>Learn by reading and shipping</span>
+        </span>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+      <nav class="site-nav" id="site-nav" aria-label="主導覽">
+        <a href="../index.html">首頁</a>
+        <a href="../toc.html">課程目錄</a>
+        <a href="../chapters/ch01.html">開始閱讀</a>
+        <a href="lab01-student-repo.html" aria-current="page">做第一個 Lab</a>
+      </nav>
+    </header>
+
+    <main class="article-layout">
+      <aside class="article-aside">
+        <div class="aside-card">
+          <p class="card-kicker">Lab Summary</p>
+          <p>難度：入門</p>
+          <p>時間：20 至 30 分鐘</p>
+          <p>完成後你能將本機現有專案推送到 GitHub。</p>
+        </div>
+      </aside>
+
+      <article class="article-content">
+        <header class="article-header">
+          <p class="eyebrow">Lab 2</p>
+          <h1>將本機專案推送到 GitHub</h1>
+          <p>Lab 1 是從 GitHub 建立 repo 再 clone 下來。這次反過來：從本機已有的專案開始，連接到 GitHub 並推送。</p>
+        </header>
+
+        <section class="article-section">
+          <h2>練習目標</h2>
+          <ul class="bullet-list">
+            <li>把本機已有的資料夾初始化為 Git repository</li>
+            <li>在 GitHub 建立對應的空 repository</li>
+            <li>設定遠端連結並完成第一次 push</li>
+          </ul>
+        </section>
+
+        <section class="article-section">
+          <h2>先備條件</h2>
+          <ul class="bullet-list">
+            <li>已完成 Lab 1</li>
+            <li>本機有一個想要推到 GitHub 的資料夾（可用 Lab 1 建立的專案繼續操作）</li>
+            <li>GitHub 帳號已登入</li>
+          </ul>
+        </section>
+
+        <section class="article-section">
+          <h2>操作步驟</h2>
+          <div class="steps">
+            <div class="step">
+              <span>1</span>
+              <div>
+                <h3>進入本機專案資料夾</h3>
+                <p>在終端機切換到你的專案目錄：</p>
+                <pre class="code-block"><code>cd /path/to/your-project</code></pre>
+              </div>
+            </div>
+            <div class="step">
+              <span>2</span>
+              <div>
+                <h3>初始化 Git（若尚未 init）</h3>
+                <p>如果這個資料夾還不是 Git repository：</p>
+                <pre class="code-block"><code>git init</code></pre>
+              </div>
+            </div>
+            <div class="step">
+              <span>3</span>
+              <div>
+                <h3>建立第一個 commit</h3>
+                <p>把現有的所有檔案 stage 起來並 commit：</p>
+                <pre class="code-block"><code>git add .
+git commit -m "initial commit"</code></pre>
+              </div>
+            </div>
+            <div class="step">
+              <span>4</span>
+              <div>
+                <h3>在 GitHub 建立空 repository</h3>
+                <p>前往 GitHub，點擊右上角 <strong>+</strong> → <strong>New repository</strong>。名稱與本機資料夾相同會比較好管理。<strong>不要</strong>勾選「Initialize this repository with a README」。</p>
+              </div>
+            </div>
+            <div class="step">
+              <span>5</span>
+              <div>
+                <h3>設定遠端連結</h3>
+                <p>複製 GitHub 上顯示的 HTTPS 網址，回到終端機執行：</p>
+                <pre class="code-block"><code>git remote add origin https://github.com/your-account/your-project.git</code></pre>
+              </div>
+            </div>
+            <div class="step">
+              <span>6</span>
+              <div>
+                <h3>推送到 GitHub</h3>
+                <pre class="code-block"><code>git branch -M main
+git push -u origin main</code></pre>
+                <p>第一次推送需要 <code>-u origin main</code> 設定上游。之後只需要 <code>git push</code>。</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="article-section">
+          <h2>驗證成功</h2>
+          <ul class="bullet-list">
+            <li>打開 GitHub 網頁，repository 裡可以看到你的檔案</li>
+            <li>Commits 頁面顯示 "initial commit"</li>
+            <li>執行 <code>git remote -v</code> 可看到 origin 指向正確的 URL</li>
+          </ul>
+        </section>
+
+        <section class="article-section">
+          <h2>常見問題</h2>
+          <div class="callout soft">
+            <strong>push 時要求輸入密碼</strong>
+            <p>GitHub 已停止支援密碼驗證。請改用 Personal Access Token（PAT）或設定 SSH key。建議前往 GitHub Settings → Developer settings → Personal access tokens 產生 token，推送時輸入 token 取代密碼。</p>
+          </div>
+          <div class="callout" style="margin-top:12px">
+            <strong>error: remote origin already exists</strong>
+            <p>表示已設定過 remote。可以用 <code>git remote set-url origin 新網址</code> 更新，或先 <code>git remote remove origin</code> 再重新 add。</p>
+          </div>
+        </section>
+
+        <nav class="pager" aria-label="頁面切換">
+          <a href="lab01-student-repo.html">上一個 Lab：建立第一個 GitHub Repo</a>
+          <a href="lab03-pull-request.html">下一個 Lab：協作與 Pull Request 入門</a>
+        </nav>
+      </article>
+    </main>
+
+    <footer class="site-footer">
+      <p>Git Start Book</p>
+      <p>Lab 2</p>
+    </footer>
+  </div>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

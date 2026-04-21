@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 300" fill="none" font-family="-apple-system,BlinkMacSystemFont,'Noto Sans TC',sans-serif">
+  <rect width="680" height="300" rx="16" fill="#1e1e1e"/>
+
+  <!-- VS Code window chrome -->
+  <rect x="0" y="0" width="680" height="28" rx="16" fill="#323233"/>
+  <rect x="0" y="14" width="680" height="14" fill="#323233"/>
+  <circle cx="24" cy="14" r="5" fill="#ff5f57"/>
+  <circle cx="42" cy="14" r="5" fill="#febc2e"/>
+  <circle cx="60" cy="14" r="5" fill="#28c840"/>
+  <text x="340" y="19" text-anchor="middle" font-size="10" fill="#999">my-project — VS Code</text>
+
+  <!-- Left sidebar icons -->
+  <rect x="0" y="28" width="44" height="272" fill="#333333"/>
+  <!-- Explorer icon -->
+  <rect x="10" y="44" width="24" height="20" rx="3" fill="#999" opacity="0.3"/>
+  <text x="22" y="58" text-anchor="middle" font-size="10" fill="#ccc">📁</text>
+  <!-- Source Control icon (highlighted) -->
+  <rect x="6" y="72" width="32" height="28" rx="4" fill="#1a7a45" opacity="0.25"/>
+  <text x="22" y="91" text-anchor="middle" font-size="14" fill="#4ec994">⑂</text>
+  <!-- Badge -->
+  <circle cx="34" cy="74" r="7" fill="#1a7a45"/>
+  <text x="34" y="78" text-anchor="middle" font-size="9" font-weight="700" fill="#fff">3</text>
+
+  <!-- Source Control panel -->
+  <rect x="44" y="28" width="196" height="272" fill="#252526"/>
+  <text x="56" y="50" font-size="10" font-weight="600" fill="#bbbbbb" letter-spacing="0.08em">SOURCE CONTROL</text>
+
+  <!-- Commit input box -->
+  <rect x="52" y="58" width="180" height="32" rx="4" fill="#3c3c3c"/>
+  <text x="62" y="78" font-size="10" fill="#888">✏️  add: README 更新說明</text>
+
+  <!-- Commit button -->
+  <rect x="52" y="96" width="180" height="24" rx="4" fill="#1a7a45"/>
+  <text x="142" y="112" text-anchor="middle" font-size="11" font-weight="600" fill="#fff">✔ Commit</text>
+
+  <!-- Changes section -->
+  <text x="56" y="138" font-size="10" fill="#888" letter-spacing="0.06em">CHANGES  3</text>
+
+  <!-- File items -->
+  <!-- README.md M -->
+  <rect x="52" y="146" width="180" height="22" rx="3" fill="#2a2d2e"/>
+  <text x="62" y="161" font-size="10" fill="#cccccc">📄 README.md</text>
+  <text x="220" y="161" text-anchor="end" font-size="10" font-weight="700" fill="#e2c08d">M</text>
+  <!-- index.html U -->
+  <rect x="52" y="170" width="180" height="22" rx="3" fill="transparent"/>
+  <text x="62" y="185" font-size="10" fill="#cccccc">📄 index.html</text>
+  <text x="220" y="185" text-anchor="end" font-size="10" font-weight="700" fill="#73c991">U</text>
+  <!-- style.css U -->
+  <rect x="52" y="194" width="180" height="22" rx="3" fill="transparent"/>
+  <text x="62" y="209" font-size="10" fill="#cccccc">📄 style.css</text>
+  <text x="220" y="209" text-anchor="end" font-size="10" font-weight="700" fill="#73c991">U</text>
+
+  <!-- Branch label -->
+  <rect x="52" y="240" width="180" height="24" rx="4" fill="#3c3c3c"/>
+  <text x="62" y="256" font-size="10" fill="#9cdcfe">⑂  main</text>
+  <text x="218" y="256" text-anchor="end" font-size="9" fill="#888">⟳ Sync</text>
+
+  <!-- Editor area (diff preview) -->
+  <rect x="240" y="28" width="440" height="272" fill="#1e1e1e"/>
+  <text x="256" y="50" font-size="10" fill="#888">README.md</text>
+  <line x1="240" y1="56" x2="680" y2="56" stroke="#333" stroke-width="1"/>
+
+  <!-- Line numbers and code -->
+  <text x="258" y="76" font-size="10" fill="#555">1</text>
+  <text x="280" y="76" font-size="10" fill="#ce9178"># My Project</text>
+
+  <text x="258" y="94" font-size="10" fill="#555">2</text>
+  <rect x="240" y="82" width="440" height="16" fill="#ff000020"/>
+  <text x="280" y="94" font-size="10" fill="#f44747">- 這是舊的說明文字</text>
+
+  <text x="258" y="112" font-size="10" fill="#555">3</text>
+  <rect x="240" y="100" width="440" height="16" fill="#00ff0020"/>
+  <text x="280" y="112" font-size="10" fill="#73c991">+ 這是新的 README 說明，使用 Markdown 格式</text>
+
+  <text x="258" y="130" font-size="10" fill="#555">4</text>
+  <text x="280" y="130" font-size="10" fill="#888"> </text>
+
+  <text x="258" y="148" font-size="10" fill="#555">5</text>
+  <rect x="240" y="136" width="440" height="16" fill="#00ff0020"/>
+  <text x="280" y="148" font-size="10" fill="#73c991">+ ## 如何安裝</text>
+
+  <text x="258" y="166" font-size="10" fill="#555">6</text>
+  <rect x="240" y="154" width="440" height="16" fill="#00ff0020"/>
+  <text x="280" y="166" font-size="10" fill="#73c991">+ ```bash</text>
+
+  <text x="258" y="184" font-size="10" fill="#555">7</text>
+  <rect x="240" y="172" width="440" height="16" fill="#00ff0020"/>
+  <text x="280" y="184" font-size="10" fill="#73c991">+ git clone https://github.com/user/my-project.git</text>
+
+  <!-- Status bar -->
+  <rect x="0" y="276" width="680" height="24" fill="#1a7a45"/>
+  <text x="56" y="292" font-size="10" fill="#fff">⑂ main</text>
+  <text x="144" y="292" font-size="10" fill="#fff">⟳ 0↓ 1↑</text>
+  <text x="480" y="292" font-size="10" fill="#fff">UTF-8  LF  TypeScript</text>
+</svg>
