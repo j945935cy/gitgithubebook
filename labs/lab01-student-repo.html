@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lab 1 | 建立第一個 GitHub Repo</title>
+  <meta name="description" content="透過 Lab 1 完成 GitHub repository 建立、clone、commit 與 push。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;800&family=Urbanist:wght@500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style/main.css">
+</head>
+<body>
+  <div class="site-shell">
+    <header class="topbar">
+      <a class="brand" href="../index.html">
+        <span class="brand-mark">GS</span>
+        <span class="brand-copy">
+          <strong>Git Start Book</strong>
+          <span>Learn by reading and shipping</span>
+        </span>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+      <nav class="site-nav" id="site-nav" aria-label="主導覽">
+        <a href="../index.html">首頁</a>
+        <a href="../toc.html">課程目錄</a>
+        <a href="../chapters/ch01.html">開始閱讀</a>
+        <a href="lab01-student-repo.html" aria-current="page">做第一個 Lab</a>
+      </nav>
+    </header>
+
+    <main class="article-layout">
+      <aside class="article-aside">
+        <div class="aside-card">
+          <p class="card-kicker">Lab Summary</p>
+          <p>難度：入門</p>
+          <p>時間：20 至 30 分鐘</p>
+          <p>完成後你會有第一個 GitHub repository。</p>
+        </div>
+      </aside>
+
+      <article class="article-content">
+        <header class="article-header">
+          <p class="eyebrow">Lab 1</p>
+          <h1>建立第一個 GitHub Repo</h1>
+          <p>這個練習會帶你完成最小可行流程：建立 repo、clone 到本機、新增檔案、commit、push。</p>
+        </header>
+
+        <section class="article-section">
+          <h2>練習目標</h2>
+          <ul class="bullet-list">
+            <li>建立一個新的 GitHub repository</li>
+            <li>把 repository clone 到本機</li>
+            <li>完成第一次 commit 與 push</li>
+          </ul>
+        </section>
+
+        <section class="article-section">
+          <h2>先備條件</h2>
+          <ul class="bullet-list">
+            <li>已擁有 GitHub 帳號</li>
+            <li>已安裝 Git 與 VS Code</li>
+            <li>已完成基本 Git 設定</li>
+          </ul>
+        </section>
+
+        <section class="article-section">
+          <h2>操作步驟</h2>
+          <div class="steps">
+            <div class="step">
+              <span>1</span>
+              <div>
+                <h3>在 GitHub 建立新 repository</h3>
+                <p>命名可以先用簡單的名稱，例如 `my-first-project`。</p>
+              </div>
+            </div>
+            <div class="step">
+              <span>2</span>
+              <div>
+                <h3>clone 到本機</h3>
+                <pre class="code-block"><code>git clone https://github.com/your-account/my-first-project.git</code></pre>
+              </div>
+            </div>
+            <div class="step">
+              <span>3</span>
+              <div>
+                <h3>新增一個 `index.html`</h3>
+                <p>在資料夾裡建立最基本的首頁檔案。</p>
+              </div>
+            </div>
+            <div class="step">
+              <span>4</span>
+              <div>
+                <h3>建立第一個 commit</h3>
+                <pre class="code-block"><code>git add .
+git commit -m "initial commit"</code></pre>
+              </div>
+            </div>
+            <div class="step">
+              <span>5</span>
+              <div>
+                <h3>push 到 GitHub</h3>
+                <pre class="code-block"><code>git push</code></pre>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="article-section">
+          <h2>VS Code 操作對照</h2>
+          <ul class="bullet-list">
+            <li>打開專案資料夾</li>
+            <li>進入 Source Control</li>
+            <li>輸入 commit message</li>
+            <li>點擊 Commit 與 Sync / Push</li>
+          </ul>
+        </section>
+
+        <section class="article-section">
+          <h2>成功條件</h2>
+          <ul class="bullet-list">
+            <li>GitHub 上可以看到新檔案</li>
+            <li>本機與遠端 repository 已同步</li>
+            <li>你知道 `clone`、`commit`、`push` 分別在做什麼</li>
+          </ul>
+        </section>
+
+        <section class="article-section">
+          <h2>常見錯誤</h2>
+          <div class="callout soft">
+            <strong>`push` 失敗</strong>
+            <p>先確認你是否有正確登入 GitHub、遠端網址是否正確，以及遠端是否已有你本機沒有的內容。</p>
+          </div>
+        </section>
+
+        <nav class="pager" aria-label="頁面切換">
+          <a href="../chapters/ch02.html">上一頁：安裝 Git 與設定環境</a>
+          <a href="../toc.html">返回課程目錄</a>
+        </nav>
+      </article>
+    </main>
+
+    <footer class="site-footer">
+      <p>Git Start Book</p>
+      <p>Lab 1</p>
+    </footer>
+  </div>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

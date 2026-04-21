@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chapter 2 | 安裝 Git 與設定環境</title>
+  <meta name="description" content="準備 Git 與 VS Code 環境，建立適合初學者的版本控制工作流程。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;800&family=Urbanist:wght@500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style/main.css">
+</head>
+<body>
+  <div class="site-shell">
+    <header class="topbar">
+      <a class="brand" href="../index.html">
+        <span class="brand-mark">GS</span>
+        <span class="brand-copy">
+          <strong>Git Start Book</strong>
+          <span>Learn by reading and shipping</span>
+        </span>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+      <nav class="site-nav" id="site-nav" aria-label="主導覽">
+        <a href="../index.html">首頁</a>
+        <a href="../toc.html">課程目錄</a>
+        <a href="ch01.html" aria-current="page">開始閱讀</a>
+        <a href="../labs/lab01-student-repo.html">做第一個 Lab</a>
+      </nav>
+    </header>
+
+    <main class="article-layout">
+      <aside class="article-aside">
+        <div class="aside-card">
+          <p class="card-kicker">Setup Checklist</p>
+          <a href="#install-git">安裝 Git</a>
+          <a href="#configure-git">設定 Git 身分</a>
+          <a href="#prepare-vscode">準備 VS Code</a>
+          <a href="#verify-tools">驗證環境</a>
+        </div>
+      </aside>
+
+      <article class="article-content">
+        <header class="article-header">
+          <p class="eyebrow">Chapter 2</p>
+          <h1>安裝 Git 與設定環境</h1>
+          <p>這一章先把工具準備好，讓你後面在練習 commit、push 與 GitHub Pages 時不會被環境問題卡住。</p>
+        </header>
+
+        <section id="install-git" class="article-section">
+          <h2>安裝 Git</h2>
+          <p>先到 Git 官方網站下載安裝程式，完成安裝後打開終端機，輸入以下指令確認是否成功：</p>
+          <pre class="code-block"><code>git --version</code></pre>
+        </section>
+
+        <section id="configure-git" class="article-section">
+          <h2>設定 Git 身分</h2>
+          <p>第一次使用 Git 時，建議先設定使用者名稱與電子郵件，這些資訊會寫入 commit 紀錄中。</p>
+          <pre class="code-block"><code>git config --global user.name "Your Name"
+git config --global user.email "you@example.com"</code></pre>
+          <div class="callout soft">
+            <strong>提醒</strong>
+            <p>這裡填寫的資訊最好和你的 GitHub 帳號一致，後續查看 commit 紀錄會更清楚。</p>
+          </div>
+        </section>
+
+        <section id="prepare-vscode" class="article-section">
+          <h2>準備 VS Code</h2>
+          <p>安裝 VS Code 後，你可以直接使用內建的 Source Control 功能來查看變更、建立 commit、同步遠端。</p>
+          <ul class="bullet-list">
+            <li>安裝 VS Code</li>
+            <li>打開專案資料夾</li>
+            <li>熟悉左側的 Source Control 面板</li>
+          </ul>
+        </section>
+
+        <section id="verify-tools" class="article-section">
+          <h2>驗證環境</h2>
+          <p>在開始下一章之前，確認你已經能做到以下幾件事：</p>
+          <ul class="bullet-list">
+            <li>終端機可正確執行 `git --version`</li>
+            <li>已設定 `user.name` 與 `user.email`</li>
+            <li>VS Code 可正常開啟專案資料夾</li>
+          </ul>
+        </section>
+
+        <nav class="pager" aria-label="章節切換">
+          <a href="ch01.html">上一章：Git 與 GitHub 是什麼</a>
+          <a href="../labs/lab01-student-repo.html">下一步：開始 Lab 1</a>
+        </nav>
+      </article>
+    </main>
+
+    <footer class="site-footer">
+      <p>Git Start Book</p>
+      <p>Chapter 2</p>
+    </footer>
+  </div>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>
